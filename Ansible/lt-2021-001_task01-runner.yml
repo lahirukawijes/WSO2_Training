@@ -1,0 +1,14 @@
+- hosts: localhost
+  gather_facts: no
+  vars:
+      gcp_project: lt-2021-001
+      gcp_cred_kind: serviceaccount
+      gcp_cred_file: /home/lahiruka_wijesinghe/lt-2021-001-b11bdda40363.json
+      zone: "asia-south1-c"
+      region: "asia-south1"
+
+  tasks:
+    - include_tasks: lt-2021-001_task01.yml
+      with_items:
+              - {name : "vm1" , address : "vm1" , disk : "vm1" }
+              - {name : "vm2" , address : "vm2" , disk : "vm2" }
